@@ -5,10 +5,9 @@ window.addEventListener('mousedown', ev => {
         ev.ctrlKey  === false &&
         ev.metaKey  === false &&
         ev.shiftKey === false) {
-        const prevHandler = window.oncontextmenu;
         window.oncontextmenu = () => false;
         history.back();
-        setTimeout(() => {window.oncontextmenu = prevHandler;}, 1000);
+        setTimeout(() => {window.oncontextmenu = null;}, 100);
     }
     else if (
         ev.button   === 2 &&  // right click(2)
@@ -20,6 +19,6 @@ window.addEventListener('mousedown', ev => {
         const prevHandler = window.oncontextmenu;
         window.oncontextmenu = () => false;
         history.forward();
-        setTimeout(() => {window.oncontextmenu = prevHandler;}, 1000);
+        setTimeout(() => {window.oncontextmenu = null;}, 100);
     }
 }, true);
